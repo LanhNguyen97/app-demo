@@ -78,7 +78,7 @@ const SignUp = (props) => {
       <div className="row">
         <div className="col-12">
           <WrapperSignIn className="wrapper-sign-in">
-            <TitleSignIn>Sign In</TitleSignIn>
+            <TitleSignIn>Sign Up</TitleSignIn>
             <div className="mb-3">
               <Input value={state.name} label="Name" type="text" returnName name="name" onChange={onChangeCommon} />
             </div>
