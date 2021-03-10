@@ -1,4 +1,6 @@
 import React from 'react';
+import { useDispatch } from 'react-redux'
+
 import { callApi } from '../../utils/callApi';
 import {
   ContainerProduct,
@@ -9,11 +11,14 @@ import {
 } from './styled'
 import Button from '../../components/Button'
 import { getPromotionalPrice, numberWithCommasAndCurrency } from '../../utils/common';
+import { addToCart } from '../../redux/action';
 
 const DetailProduct = (props) => {
   const { product = {} } = props
+  const dispatch = useDispatch()
+
   const onClick = () => {
-    console.log('onClick ===>');
+    dispatch(addToCart(product))
   }
 
   return (
