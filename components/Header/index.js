@@ -56,6 +56,16 @@ const Header = (props) => {
                     <a className={pathname === '/sign-up' ? 'nav-active' : ''}>Sign Up</a>
                   </Link>
                 </WrapperItemNav>
+                <WrapperItemNav>
+                  <Link href="/categories" as="/categories">
+                    <a className={pathname === '/categories' ? 'nav-active' : ''}>Categories</a>
+                  </Link>
+                </WrapperItemNav>
+                <WrapperItemNav>
+                  <Link href="/checkout" as="/checkout">
+                    <a className={pathname === '/checkout' ? 'nav-active' : ''}>Checkout</a>
+                  </Link>
+                </WrapperItemNav>
               </WrapperNav>
               <WrapperIcon>
                 <FontAwesomeIcon icon={faShoppingCart} onClick={toggleModal} style={Pointer} />

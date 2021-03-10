@@ -71,12 +71,14 @@ const addToCart = (state, product) => {
     })
 
     if (!isExisted) {
-      product.quantity = 1;
-      cart.push(product)
+      const cloneProduct = JSON.parse(JSON.stringify(product));
+      cloneProduct.quantity = 1;
+      cart.push(cloneProduct)
     }
   } else {
-    product.quantity = 1;
-    cart.push(product)
+    const cloneProduct = JSON.parse(JSON.stringify(product));
+    cloneProduct.quantity = 1;
+    cart.push(cloneProduct)
   }
 
   if (window !== 'undefined') {
