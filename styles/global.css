@@ -255,3 +255,15 @@ a.remove-product:hover {
 input:focus {
   outline: none !important;
 }
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+.modal-dialog.modal-inform-order {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+  position: absolute !important;
+  width: 100% !important;
+}

@@ -5,7 +5,7 @@ export default function Home({ data }) {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-12 text-center list-product my-3">LIST PRODUCT</div>
+        <div className="col-12 text-center list-product my-3">LIST PRODUCTS</div>
         <div className="col-12">
           <div className="row">
             {
@@ -17,7 +17,6 @@ export default function Home({ data }) {
                 )
               })
             }
-
           </div>
         </div>
       </div>

@@ -104,6 +104,11 @@ const cartReducer = (state = initialState, action) => {
       return { ...state, cart: removeFromCart(state.cart, action.payload) }
     case types.REMOVE_WHOLE_ITEM:
       return { ...state, cart: removeWholeItem(state.cart, action.payload) }
+    case types.CLEAR_ALL_CART:
+      if (window !== 'undefined') {
+        localStorage.setItem('cart', JSON.stringify([]))
+      }
+      return { cart: [] }
     default:
       return state
   }

@@ -22,3 +22,7 @@ export const removeWholeItem = (product) => ({
   type: types.REMOVE_WHOLE_ITEM,
   payload: product,
 });
+
+export const clearAllCart = () => ({
+  type: types.CLEAR_ALL_CART,
+});

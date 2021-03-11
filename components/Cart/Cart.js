@@ -17,8 +17,8 @@ const Cart = (props) => {
   const { isShow, cart, modalCart } = props;
   const router = useRouter();
   const lengthCart = cart.length;
-  let totalPrice = 0;
 
+  let totalPrice = 0;
   cart.forEach((item) => {
     totalPrice += parseInt(item.price) * parseInt(item.quantity);
   });
@@ -39,16 +39,16 @@ const Cart = (props) => {
       dialogClassName="popup-cart"
     >
       <Modal.Header closeButton>
-        <Modal.Title>Giỏ hàng</Modal.Title>
+        <Modal.Title>Shopping cart</Modal.Title>
         <span className="total-quantity">
-          (<span className="total">{lengthCart} </span>
-          Sản phẩm)
+          <span className="total">{lengthCart} </span>
+          product(s)
         </span>
       </Modal.Header>
       <Modal.Body>
         {(cart && cart.length === 0) || cart.size === 0 ? (
           <p style={{ textAlign: "center", marginTop: "150px" }}>
-            Giỏ hàng rỗng, nhấn <a href="/">vào đây</a> để tiếp tục mua sắm
+            Empty cart, press <a href="/">here</a> to continue shopping
           </p>
         ) : (
           cart.map((product, index) => {
@@ -70,7 +70,7 @@ const Cart = (props) => {
       </Modal.Body>
       <Modal.Footer>
         <div className="div-total">
-          <div className="label-total">Thành tiền:</div>
+          <div className="label-total">Total:</div>
           <div className="text-total-right">
             <NumberFormat
               value={totalPrice}
@@ -84,7 +84,7 @@ const Cart = (props) => {
         </div>
         <div className="div-checkout">
           <button type="button" className="btn btn-primary btn-block" onClick={onClick}>
-            <a>Tiền Hành Đặt Hàng</a>
+            <a>Checkout</a>
           </button>
         </div>
       </Modal.Footer>

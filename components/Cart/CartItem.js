@@ -25,7 +25,7 @@ const CartItem = ({
         <div className="row-cart">
           <div className="cart-quantity">
             <div className="edit-quantity">
-              <label className="title-quantity">Số lượng</label>
+              <label className="title-quantity">Quantity</label>
               <div className="cart-select">
                 <div
                   className="input-group-btn"
@@ -40,11 +40,10 @@ const CartItem = ({
                   </button>
                   <span className="input-quantity">{quantity} </span>
                   <button
-                    className={`btn btn-default btn-plus ${
-                      totalQuantity - quantity <= 0
-                        ? "disable-button-increase"
-                        : ""
-                    }`}
+                    className={`btn btn-default btn-plus ${totalQuantity - quantity <= 0
+                      ? "disable-button-increase"
+                      : ""
+                      }`}
                     onClick={addItem}
                     type="button"
                     disabled={totalQuantity - quantity <= 0}
@@ -56,13 +55,12 @@ const CartItem = ({
             </div>
             <div className="edit-quantity ml-3">
               <label className="title-quantity mb-2">
-                {totalQuantity - quantity !== 0 ? "Còn" : " "}
+                {totalQuantity - quantity !== 0 ? "Remaining" : " "}
               </label>
-              <label className="title-quantity">{`${
-                totalQuantity - quantity === 0
-                  ? "Hết hàng"
-                  : `${totalQuantity - quantity} sản phẩm`
-              }`}</label>
+              <label className="title-quantity">{`${totalQuantity - quantity === 0
+                ? "Sold out"
+                : `${totalQuantity - quantity} product(s)`
+                }`}</label>
             </div>
           </div>
           <div className="div-price">
@@ -72,12 +70,12 @@ const CartItem = ({
                 displayType={"text"}
                 thousandSeparator={true}
                 renderText={(value) => (
-                  <span className="price-product">{value}₫/1sp</span>
+                  <span className="price-product">{value}₫/1item</span>
                 )}
               />
             </div>
             <a className="remove-product" onClick={removeWholeItem}>
-              Bỏ sản phẩm
+              Remove this product
             </a>
           </div>
         </div>
