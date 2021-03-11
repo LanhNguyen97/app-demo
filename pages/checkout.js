@@ -20,6 +20,7 @@ import { addToCart, clearAllCart, removeFromCart, removeWholeItem } from '../red
 import { useImmer } from 'use-immer';
 import Textarea from '../components/Textarea';
 import ModalInformOrder from '../components/Modal/ModalInformOrder';
+import withAuth from '../components/Auth';
 
 const initialState = () => ({
   fullName: '',
@@ -31,7 +32,7 @@ const initialState = () => ({
 })
 
 const Checkout = (props) => {
-  const { cart } = props
+  const { cart, user = {} } = props
   let _isMounted = true
   const router = useRouter()
 
@@ -112,7 +113,7 @@ const Checkout = (props) => {
                     name="fullName"
                     onChange={onChangeCommon}
                     className="form-control"
-                    value={state.fullName}
+                    value={user.name || state.fullName}
                   // autoComplete="off"
                   />
                 </div>
@@ -261,8 +262,9 @@ const Checkout = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    cart: state.cart.cart
+    cart: state.cart.cart,
+    user: state.user,
   }
 }
 
-export default connect(mapStateToProps, null)(Checkout);
+export default connect(mapStateToProps, null)(withAuth(Checkout));

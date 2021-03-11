@@ -5,6 +5,11 @@ import Input from '../components/Input'
 import Alert from '../components/Alert'
 import { WrapperSignIn, TitleSignIn } from '../styles/styleSignIn'
 import { callApi } from '../utils/callApi';
+import { generateToken } from '../utils/token';
+import { setCookie } from '../utils/cookies';
+import { useRouter } from 'next/router';
+import { useDispatch } from 'react-redux';
+import { initInfo } from '../redux/userActions';
 
 const SignUp = (props) => {
   const [state, setState] = useImmer({
@@ -17,6 +22,8 @@ const SignUp = (props) => {
     showError: false,
   })
   let _isMounted = true;
+  const router = useRouter()
+  const dispatch = useDispatch()
 
   useEffect(() => {
 
@@ -49,8 +56,15 @@ const SignUp = (props) => {
     const res = await callApi('https://5e1fc92ee31c6e0014c6000e.mockapi.io/api/user', 'post', dataPost);
 
     if (res) {
-      console.log('data ===>', res);
       if (res.status === 201) {
+        dispatch(initInfo(res.data))
+
+        const token = generateToken({ userId: res.data.userId })
+
+        if (token) {
+          setCookie('token', token)
+        }
+
         setStateCommon({
           showError: true,
           message: 'Success.',
@@ -60,6 +74,8 @@ const SignUp = (props) => {
           userName: '',
           passWord: ''
         })
+
+        router.push('/')
       }
     }
   }

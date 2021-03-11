@@ -1,11 +1,11 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from './layout.module.css'
-import utilStyles from '../styles/utils.module.css'
-import Link from 'next/link'
+import { useEffect } from 'react'
 import Header from './Header'
 
 export default function Layout({ children, home }) {
+
+  useEffect(() => {
+    console.log('effect layout ====>');
+  }, [])
   return (
     <div>
       <Header />

@@ -1,0 +1,1 @@
+export const INIT_INFO = 'INIT_INFO'
