@@ -7,8 +7,6 @@ export const checkToken = (ctx) => {
   const { pathname } = ctx
   let isValidToken = false;
 
-  const isBrowser = typeof window !== 'undefined'
-
   if (token) {
     const decode = verifyToken(token)
     const { userId, exp } = decode

@@ -11,7 +11,8 @@ import {
   WrapperNav,
   WrapperItemNav,
   Flex,
-  WrapperIcon
+  WrapperIcon,
+  WrapperAvatar
 } from './styled'
 import { init } from '../../redux/action'
 import ModalCart from '../Cart/Cart'
@@ -22,7 +23,7 @@ const Header = (props) => {
   const router = useRouter()
   const dispatch = useDispatch()
   const { pathname } = router
-  const { cart } = props
+  const { cart, user } = props
   const [isShow, setIsShow] = useState(false)
 
 
@@ -33,6 +34,10 @@ const Header = (props) => {
   useEffect(() => {
     dispatch(init())
   }, [])
+
+  const onLogout = () => {
+
+  }
 
   return (
     <ContainerNav>
@@ -67,10 +72,24 @@ const Header = (props) => {
                   </Link>
                 </WrapperItemNav>
               </WrapperNav>
-              <WrapperIcon>
-                <FontAwesomeIcon icon={faShoppingCart} onClick={toggleModal} style={Pointer} />
-                <span className="total">{cart.length || 0}</span>
-              </WrapperIcon>
+              <Flex>
+                <WrapperIcon>
+                  <FontAwesomeIcon icon={faShoppingCart} onClick={toggleModal} style={Pointer} />
+                  <span className="total">{cart.length || 0}</span>
+                </WrapperIcon>
+                {Object.keys(user).length > 0
+                  ? (
+                    <WrapperAvatar className="avatar-user">
+                      <img src={`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRuB6Ziv2XV4n9JvDLNj4jLZjS3_Wm1mWCMw&usqp=CAU`} loading="lazy" />
+                      <div className="menu">
+                        <div className="profile">Profile</div>
+                        <div className="logout" onClick={onLogout}>Log out</div>
+                      </div>
+                    </WrapperAvatar>
+                  )
+                  : null
+                }
+              </Flex>
             </Flex>
             <ModalCart isShow={isShow} onClose={toggleModal} />
           </div>
@@ -83,6 +102,7 @@ const Header = (props) => {
 const mapStateToProps = (state) => {
   return {
     cart: state.cart.cart,
+    user: state.user
   };
 };
 

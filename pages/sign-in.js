@@ -95,7 +95,7 @@ const SignIn = props => {
       })
 
       if (isMatching) {
-        dispatch(initInfo(userInfo))
+        // dispatch(initInfo(userInfo))
 
         const token = generateToken({ userId: userInfo.userId })
 

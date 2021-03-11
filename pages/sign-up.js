@@ -57,7 +57,7 @@ const SignUp = (props) => {
 
     if (res) {
       if (res.status === 201) {
-        dispatch(initInfo(res.data))
+        // dispatch(initInfo(res.data))
 
         const token = generateToken({ userId: res.data.userId })
 
