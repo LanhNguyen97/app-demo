@@ -4,8 +4,6 @@ import { checkToken } from './utils'
 
 const withAuth = (WrapperComponent) => {
   const wrapper = props => {
-    const router = useRouter()
-
     return <WrapperComponent {...props} />
   }
 

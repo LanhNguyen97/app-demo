@@ -8,7 +8,7 @@ import {
   ProductName,
   OriginalPrice,
   WrapperPrice
-} from './styled'
+} from '../../styles/stylePageDetailProduct'
 import Button from '../../components/Button'
 import { getPromotionalPrice, numberWithCommasAndCurrency } from '../../utils/common';
 import { addToCart } from '../../redux/action';
