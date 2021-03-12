@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+import { faShoppingCart, faBars } from '@fortawesome/free-solid-svg-icons'
 import { connect } from "react-redux";
 import { useDispatch } from 'react-redux'
 
@@ -12,14 +12,16 @@ import {
   WrapperItemNav,
   Flex,
   WrapperIcon,
-  WrapperAvatar
+  WrapperAvatar,
 } from './styled'
 import { init } from '../../redux/action'
 import ModalCart from '../Cart/Cart'
 import { removeCookie } from '../../utils/cookies'
 import { clearInfoUser } from '../../redux/userActions'
+import NavMobile from './NavMobile'
 
 const Pointer = { cursor: 'pointer' }
+const StyleBars = { ...Pointer, color: '#fff' }
 
 const Header = (props) => {
   const router = useRouter()
@@ -27,10 +29,15 @@ const Header = (props) => {
   const { pathname } = router
   const { cart, user } = props
   const [isShow, setIsShow] = useState(false)
+  const [isShowNav, setIsShowNav] = useState(false)
 
 
   const toggleModal = () => {
     setIsShow(!isShow)
+  }
+
+  const toggleNav = () => {
+    setIsShowNav(!isShowNav)
   }
 
   useEffect(() => {
@@ -53,7 +60,11 @@ const Header = (props) => {
         <div className="row">
           <div className="col-12">
             <Flex>
-              <WrapperNav>
+              <NavMobile isShowNav={isShowNav} onToggle={toggleNav} />
+              <div className="d-block d-md-none">
+                <FontAwesomeIcon icon={faBars} onClick={toggleNav} style={StyleBars} />
+              </div>
+              <WrapperNav className="d-none d-md-flex">
                 <WrapperItemNav>
                   <Link href="/">
                     <a className={pathname === '/' ? 'nav-active' : ''}>Home</a>

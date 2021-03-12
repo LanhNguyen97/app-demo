@@ -91,10 +91,10 @@ const Profile = (props) => {
         <div className="col-12">
           <Title>Profile</Title>
           <div className="row">
-            <div className="col-sm-2">
+            <div className="col-md-2 custom-css-profile">
               <img src={`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqAU9KXPynTtqeWYLQlJ9CRVULXthc2yNlRw&usqp=CAU`} loading="lazy" />
             </div>
-            <div className="col-sm-10">
+            <div className="col-md-10">
               <div className="mb-3">
                 <Input
                   label="Name"

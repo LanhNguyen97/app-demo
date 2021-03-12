@@ -11,6 +11,14 @@ export const ContainerProfile = styled.div`
   img {
     border-radius: 50%;
   }
+
+  @media screen and (max-width: 767px) {
+    .custom-css-profile {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+  }
 `
 
 export const Title = styled.div`

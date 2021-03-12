@@ -26,11 +26,12 @@ export const WrapperItemNav = styled.div`
 
 export const WrapperIcon = styled.div`
   color: #fff;
+  position: relative;
 
   span {
     position: absolute;
     top: 6%;
-    right: ${({ hasUser }) => hasUser ? '4.5%' : '0.2%'};
+    right: -60%;
     height: 20px;
     min-width: 20px;
     border-radius: 50%;
@@ -91,5 +92,34 @@ export const WrapperAvatar = styled.div`
       background: #28a745;
       color: #fff;
     }
+  }
+`
+
+export const WrapperNavMobile = styled.div`
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  background: #28a745;
+  z-index: 99;
+
+  .item-nav-mobile {
+    margin: 0 40px;
+  }
+
+  .wrapper-nav-mobile {
+    margin-top: 40px;
+  }
+`
+
+export const WrapperIconClose = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  
+  svg {
+    margin-right: 20px;
+    margin-top: 20px;
+    color: #fff;
+    font-size: 25px;
+    cursor: pointer;
   }
 `
