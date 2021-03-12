@@ -1,3 +1,4 @@
 export const INIT_INFO = 'INIT_INFO'
 export const AUTHENTICATE_USER = 'AUTHENTICATE_USER'
 export const GET_INFO_DONE = 'GET_INFO_DONE'
+export const CLEAR_INFO_USER = 'CLEAR_INFO_USER'

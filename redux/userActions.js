@@ -29,6 +29,12 @@ export const authenticateUser = () => {
 
 }
 
+export const clearInfoUser = () => {
+  return {
+    type: types.CLEAR_INFO_USER,
+  }
+}
+
 const checkUser = async () => {
   const token = getCookie('token');
 

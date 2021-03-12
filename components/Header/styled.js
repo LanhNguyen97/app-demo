@@ -30,7 +30,7 @@ export const WrapperIcon = styled.div`
   span {
     position: absolute;
     top: 6%;
-    right: 4.5%;
+    right: ${({ hasUser }) => hasUser ? '4.5%' : '0.2%'};
     height: 20px;
     min-width: 20px;
     border-radius: 50%;

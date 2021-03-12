@@ -1,5 +1,7 @@
 import React from 'react';
 import { WrapperLabel, StyleInput, TextError } from './styled'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEye, faFileSignature } from '@fortawesome/free-solid-svg-icons'
 
 const Input = ({
   label,
@@ -9,6 +11,8 @@ const Input = ({
   type,
   returnName,
   error,
+  iconClick,
+  showIcon,
   ...rest
 }) => {
 
@@ -36,6 +40,7 @@ const Input = ({
               onChange={onChangeValue}
               {...rest}
             />
+            {showIcon && <FontAwesomeIcon icon={faEye} onClick={iconClick} />}
             {error && <TextError>{error}</TextError>}
           </WrapperLabel>)
           : <>
@@ -56,7 +61,8 @@ const Input = ({
 Input.defaultProps = {
   returnName: false,
   onChange: () => { },
-  type: 'text'
+  type: 'text',
+  showIcon: false,
 }
 
 export default Input;

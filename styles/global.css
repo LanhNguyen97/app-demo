@@ -267,3 +267,7 @@ button:disabled {
   position: absolute !important;
   width: 100% !important;
 }
+
+input:disabled {
+  cursor: not-allowed;
+}

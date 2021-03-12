@@ -3,9 +3,18 @@ import styled from 'styled-components'
 export const WrapperLabel = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
 
   label {
     font-size: 14px;
+  }
+
+  svg {
+    position: absolute;
+    bottom: 0;
+    right: 1%;
+    top: 63%;
+    cursor: pointer;
   }
 `
 

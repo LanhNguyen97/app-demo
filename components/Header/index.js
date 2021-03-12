@@ -16,6 +16,8 @@ import {
 } from './styled'
 import { init } from '../../redux/action'
 import ModalCart from '../Cart/Cart'
+import { removeCookie } from '../../utils/cookies'
+import { clearInfoUser } from '../../redux/userActions'
 
 const Pointer = { cursor: 'pointer' }
 
@@ -36,7 +38,13 @@ const Header = (props) => {
   }, [])
 
   const onLogout = () => {
+    removeCookie('token')
+    dispatch(clearInfoUser())
+    window.location.href = window.location.href
+  }
 
+  const onRedirectProfile = () => {
+    router.push('/profile')
   }
 
   return (
@@ -73,7 +81,7 @@ const Header = (props) => {
                 </WrapperItemNav>
               </WrapperNav>
               <Flex>
-                <WrapperIcon>
+                <WrapperIcon hasUser={Object.keys(user).length > 0}>
                   <FontAwesomeIcon icon={faShoppingCart} onClick={toggleModal} style={Pointer} />
                   <span className="total">{cart.length || 0}</span>
                 </WrapperIcon>
@@ -82,7 +90,7 @@ const Header = (props) => {
                     <WrapperAvatar className="avatar-user">
                       <img src={`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRuB6Ziv2XV4n9JvDLNj4jLZjS3_Wm1mWCMw&usqp=CAU`} loading="lazy" />
                       <div className="menu">
-                        <div className="profile">Profile</div>
+                        <div className="profile" onClick={onRedirectProfile} >Profile</div>
                         <div className="logout" onClick={onLogout}>Log out</div>
                       </div>
                     </WrapperAvatar>

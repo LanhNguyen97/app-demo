@@ -12,7 +12,7 @@ import {
   DivSubmit,
   DivBodyProducts,
   DivRow,
-} from '../styles/styleCheckout'
+} from '../styles/style.checkout'
 import Input from '../components/Input'
 import { connect } from 'react-redux'
 import CartItem from '../components/Cart/CartItem'

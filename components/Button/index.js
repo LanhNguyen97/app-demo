@@ -2,16 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleButton } from './styled'
 
-const Button = (props) => {
+const Button = ({ onClick, disabled, theme, className = '', children, ...rest }) => {
   return (
-    <StyleButton onClick={props.onClick} disabled={props.disabled} className={`btn btn-${props.theme} ${props.className}`}>
-      {props.children}
+    <StyleButton
+      onClick={onClick}
+      disabled={disabled}
+      className={`btn btn-${theme} ${className}`}
+      {...rest}
+    >
+      {children}
     </StyleButton>
   );
 };
 
 Button.defaultProps = {
-  theme: 'primary'
+  theme: 'primary',
+  disabled: false,
+  className: ''
 }
 
 
